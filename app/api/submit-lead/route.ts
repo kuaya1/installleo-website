@@ -36,7 +36,19 @@ import type { ApiResponse, LeadSubmissionResponse } from "@/app/lib/types";
 // CONFIGURATION
 // =============================================================================
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors when env vars aren't available
+let resendClient: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resendClient) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error("RESEND_API_KEY environment variable is not configured");
+    }
+    resendClient = new Resend(apiKey);
+  }
+  return resendClient;
+}
 
 const NOTIFICATION_EMAIL =
   process.env.NOTIFICATION_EMAIL || "leads@installleo.com";
@@ -688,6 +700,7 @@ export async function POST(
     const emailText = generateEmailText(leadData, metadata);
 
     try {
+      const resend = getResendClient();
       const { error } = await resend.emails.send({
         from: FROM_EMAIL,
         to: [NOTIFICATION_EMAIL],
