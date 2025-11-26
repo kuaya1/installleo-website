@@ -128,8 +128,8 @@ export const metadata: Metadata = {
 
   // Theme and color scheme
   other: {
-    "theme-color": SITE_CONFIG.colors.primary,
-    "color-scheme": "dark",
+    "theme-color": "#ffffff",
+    "color-scheme": "light",
   },
 };
 
@@ -204,57 +204,57 @@ export default function Home() {
       </main>
 
       {/*
-        FOOTER
+        FOOTER - Light theme
         - Schema.org compliant contact information
         - Service area mentions for local SEO
         - Legal links
         - Copyright
       */}
-      <footer className="border-t border-white/10 bg-primary py-12 lg:py-16">
+      <footer className="border-t border-gray-200 bg-white py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Top section with logo and contact info */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/20">
-                  <Satellite className="h-6 w-6 text-accent" aria-hidden="true" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0066FF]">
+                  <Satellite className="h-6 w-6 text-white" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xl font-bold text-white">{SITE_CONFIG.name}</p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-xl font-bold text-[#0A2540]">{SITE_CONFIG.name}</p>
+                  <p className="text-sm text-gray-500">
                     Professional Satellite Installation
                   </p>
                 </div>
               </div>
-              <p className="mb-4 max-w-md text-gray-400">
+              <p className="mb-4 max-w-md text-gray-600">
                 America's trusted source for professional Amazon LEO satellite
                 internet installation. Certified technicians, fast setup, and
                 coverage anywhere you need it.
               </p>
               {/* Contact Info with schema-friendly markup */}
               <address className="not-italic">
-                <ul className="space-y-2 text-sm text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
+                    <Mail className="h-4 w-4 text-[#0066FF]" aria-hidden="true" />
                     <a
                       href={`mailto:${SITE_CONFIG.contact.email}`}
-                      className="hover:text-white"
+                      className="hover:text-[#0066FF]"
                     >
                       {SITE_CONFIG.contact.email}
                     </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+                    <Phone className="h-4 w-4 text-[#0066FF]" aria-hidden="true" />
                     <a
                       href={`tel:${SITE_CONFIG.contact.phone}`}
-                      className="hover:text-white"
+                      className="hover:text-[#0066FF]"
                     >
                       {SITE_CONFIG.contact.phoneDisplay}
                     </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
+                    <MapPin className="h-4 w-4 text-[#0066FF]" aria-hidden="true" />
                     <span>Nationwide Service - All 50 States</span>
                   </li>
                 </ul>
@@ -263,12 +263,12 @@ export default function Home() {
 
             {/* Quick Links */}
             <nav aria-label="Footer navigation">
-              <h3 className="mb-4 font-semibold text-white">Quick Links</h3>
+              <h3 className="mb-4 font-semibold text-[#0A2540]">Quick Links</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
                     href="#lead-form"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-600 transition-colors hover:text-[#0066FF]"
                   >
                     Get a Free Quote
                   </a>
@@ -276,7 +276,7 @@ export default function Home() {
                 <li>
                   <a
                     href="#benefits"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-600 transition-colors hover:text-[#0066FF]"
                   >
                     Why Choose Us
                   </a>
@@ -284,7 +284,7 @@ export default function Home() {
                 <li>
                   <a
                     href="#faq"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-600 transition-colors hover:text-[#0066FF]"
                   >
                     FAQ
                   </a>
@@ -292,7 +292,7 @@ export default function Home() {
                 <li>
                   <a
                     href="/about"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-600 transition-colors hover:text-[#0066FF]"
                   >
                     About Us
                   </a>
@@ -300,7 +300,7 @@ export default function Home() {
                 <li>
                   <a
                     href="/contact"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-600 transition-colors hover:text-[#0066FF]"
                   >
                     Contact
                   </a>
@@ -310,8 +310,8 @@ export default function Home() {
 
             {/* Service Areas - Important for local SEO */}
             <div>
-              <h3 className="mb-4 font-semibold text-white">Service Areas</h3>
-              <p className="mb-3 text-sm text-gray-400">
+              <h3 className="mb-4 font-semibold text-[#0A2540]">Service Areas</h3>
+              <p className="mb-3 text-sm text-gray-600">
                 Professional LEO installation available in:
               </p>
               <ul className="space-y-1 text-sm text-gray-500">
@@ -326,7 +326,7 @@ export default function Home() {
           </div>
 
           {/* Divider */}
-          <div className="my-8 h-px bg-white/10" />
+          <div className="my-8 h-px bg-gray-200" />
 
           {/* Bottom row - Legal */}
           <div className="flex flex-col items-center gap-4 text-center text-sm md:flex-row md:justify-between">
@@ -336,19 +336,19 @@ export default function Home() {
             <nav aria-label="Legal links" className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="/privacy"
-                className="text-gray-500 transition-colors hover:text-white"
+                className="text-gray-500 transition-colors hover:text-[#0066FF]"
               >
                 Privacy Policy
               </a>
               <a
                 href="/terms"
-                className="text-gray-500 transition-colors hover:text-white"
+                className="text-gray-500 transition-colors hover:text-[#0066FF]"
               >
                 Terms of Service
               </a>
               <a
                 href="/sitemap.xml"
-                className="text-gray-500 transition-colors hover:text-white"
+                className="text-gray-500 transition-colors hover:text-[#0066FF]"
               >
                 Sitemap
               </a>
@@ -356,7 +356,7 @@ export default function Home() {
           </div>
 
           {/* Disclaimer */}
-          <p className="mt-6 text-center text-xs text-gray-600">
+          <p className="mt-6 text-center text-xs text-gray-400">
             InstallLEO is an independent installation service provider. We are
             not affiliated with, endorsed by, or sponsored by Amazon or Project
             Kuiper. Amazon, Project Kuiper, and related marks are trademarks of

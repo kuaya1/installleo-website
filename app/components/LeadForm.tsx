@@ -1,36 +1,8 @@
 "use client";
 
 /**
- * =============================================================================
- * LEAD FORM COMPONENT - HIGH-CONVERTING, SEO-OPTIMIZED LEAD CAPTURE
- * =============================================================================
- *
- * CONVERSION OPTIMIZATION:
- * - Clear value proposition above form
- * - Trust signals (free, no obligation, fast response)
- * - Minimal required fields (reduce friction)
- * - Large touch targets (48px minimum for mobile)
- * - Real-time validation (immediate feedback)
- * - Progress indication (loading states)
- * - Success confirmation before redirect
- *
- * SEO/ACCESSIBILITY:
- * - Semantic HTML (form, fieldset, legend, label)
- * - ARIA attributes for screen readers
- * - Proper heading hierarchy (H2 for section)
- * - id="lead-form" for anchor linking from CTAs
- *
- * TRACKING INTEGRATION POINTS:
- * - Form view tracking (intersection observer ready)
- * - Form start tracking (first field focus)
- * - Form submission tracking (success event)
- * - Error tracking (for debugging)
- *
- * CLS PREVENTION:
- * - Fixed heights for error messages (min-height)
- * - Reserved space for loading states
- * - No dynamic content that shifts layout
- * =============================================================================
+ * LEAD FORM COMPONENT - Clean White Theme Design
+ * High-converting, accessible lead capture form
  */
 
 import { useState, useCallback } from "react";
@@ -58,108 +30,22 @@ import {
   propertyTypes,
 } from "@/app/lib/validations";
 
-/**
- * =============================================================================
- * TRACKING HELPER FUNCTIONS
- * =============================================================================
- * These functions wrap analytics calls. Implement based on your setup.
- * Supports: Google Analytics 4, Meta Pixel, Google Tag Manager
- */
-
-/**
- * Track form view - Call when form enters viewport
- * GA4 Event: form_view
- * Meta Pixel: ViewContent
- *
- * USAGE: Call from useEffect with IntersectionObserver
- * @example
- * useEffect(() => {
- *   const observer = new IntersectionObserver(([entry]) => {
- *     if (entry.isIntersecting) trackFormView();
- *   }, { threshold: 0.5 });
- *   observer.observe(formRef.current);
- *   return () => observer.disconnect();
- * }, []);
- */
-export function trackFormView() {
-  // Google Analytics 4
-  // window.gtag?.('event', 'form_view', {
-  //   form_name: 'leo_installation_quote',
-  //   form_location: 'homepage',
-  // });
-
-  // Meta Pixel
-  // window.fbq?.('track', 'ViewContent', {
-  //   content_name: 'LEO Installation Quote Form',
-  //   content_category: 'Lead Form',
-  // });
-
-  console.log("[Analytics] Form View");
-}
-
-/**
- * Track form start - Call on first field interaction
- * GA4 Event: form_start
- */
+// Tracking functions (implement with your analytics)
 function trackFormStart() {
-  // window.gtag?.('event', 'form_start', {
-  //   form_name: 'leo_installation_quote',
-  // });
-
   console.log("[Analytics] Form Start");
 }
 
-/**
- * Track successful form submission
- * GA4 Event: generate_lead
- * Meta Pixel: Lead
- */
 function trackFormSubmission(data: { propertyType: string }) {
-  // Google Analytics 4 - Lead event
-  // window.gtag?.('event', 'generate_lead', {
-  //   currency: 'USD',
-  //   value: 100, // Estimated lead value
-  //   form_name: 'leo_installation_quote',
-  //   property_type: data.propertyType,
-  // });
-
-  // Meta Pixel - Lead event
-  // window.fbq?.('track', 'Lead', {
-  //   content_name: 'LEO Installation Quote',
-  //   content_category: data.propertyType,
-  //   value: 100,
-  //   currency: 'USD',
-  // });
-
-  // Google Ads Conversion (if using)
-  // window.gtag?.('event', 'conversion', {
-  //   send_to: 'AW-XXXXXXXXXX/XXXXXXXXXXXX',
-  //   value: 100,
-  //   currency: 'USD',
-  // });
-
   console.log("[Analytics] Form Submission", data);
 }
 
-/**
- * Track form errors for debugging
- * GA4 Event: form_error
- */
 function trackFormError(errorType: string, errorMessage: string) {
-  // window.gtag?.('event', 'form_error', {
-  //   form_name: 'leo_installation_quote',
-  //   error_type: errorType,
-  //   error_message: errorMessage,
-  // });
-
   console.log("[Analytics] Form Error", { errorType, errorMessage });
 }
 
 export default function LeadForm() {
   const router = useRouter();
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [hasStartedForm, setHasStartedForm] = useState(false);
 
@@ -183,9 +69,6 @@ export default function LeadForm() {
 
   const selectedPropertyType = watch("propertyType");
 
-  /**
-   * Track first interaction with form
-   */
   const handleFirstInteraction = useCallback(() => {
     if (!hasStartedForm) {
       setHasStartedForm(true);
@@ -193,9 +76,6 @@ export default function LeadForm() {
     }
   }, [hasStartedForm]);
 
-  /**
-   * Handle form submission with tracking
-   */
   const onSubmit = async (data: LeadFormInput) => {
     setSubmitStatus("loading");
     setErrorMessage("");
@@ -203,9 +83,7 @@ export default function LeadForm() {
     try {
       const response = await fetch("/api/submit-lead", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -215,47 +93,34 @@ export default function LeadForm() {
         throw new Error(result.message || "Failed to submit form");
       }
 
-      // Track successful submission
       trackFormSubmission({ propertyType: data.propertyType });
-
       setSubmitStatus("success");
 
-      // Redirect after short delay to show success state
       setTimeout(() => {
         router.push("/thank-you");
       }, 1500);
     } catch (error) {
-      const message =
-        error instanceof Error
-          ? error.message
-          : "Something went wrong. Please try again.";
-
-      // Track error
+      const message = error instanceof Error ? error.message : "Something went wrong. Please try again.";
       trackFormError("submission_error", message);
-
       setSubmitStatus("error");
       setErrorMessage(message);
     }
   };
 
-  // Input styling classes
+  // Input styling
   const inputBaseStyles =
-    "w-full rounded-xl border bg-white/5 px-4 py-4 pl-12 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 text-base";
+    "w-full rounded-xl border bg-white px-4 py-4 pl-12 text-[#0A2540] placeholder-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 text-base shadow-sm";
   const inputNormalStyles =
-    "border-white/20 focus:border-accent focus:ring-accent/20";
+    "border-gray-200 focus:border-[#0066FF] focus:ring-[#0066FF]/20";
   const inputErrorStyles =
-    "border-red-500/50 focus:border-red-500 focus:ring-red-500/20";
+    "border-red-300 focus:border-red-500 focus:ring-red-500/20";
 
   return (
     <section
       id="lead-form"
-      className="relative bg-primary py-20 lg:py-28"
+      className="relative bg-gray-50 py-20 lg:py-28"
       aria-labelledby="form-heading"
     >
-      {/* 
-        JSON-LD ContactPoint Schema
-        Helps search engines understand this is a contact/lead form
-      */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -265,131 +130,78 @@ export default function LeadForm() {
             contactType: "sales",
             availableLanguage: "English",
             areaServed: "US",
-            description:
-              "Request a free quote for professional Amazon LEO satellite internet installation",
+            description: "Request a free quote for professional Amazon LEO satellite internet installation",
           }),
         }}
       />
 
-      {/* Background effects - CSS only, no CLS */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-accent/10 blur-[100px]" />
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-amazon/10 blur-[100px]" />
-      </div>
-
       <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        {/*
-          SECTION HEADER
-          H2 with keywords: "Free LEO Installation Quote"
-          Supporting text reinforces value proposition
-        */}
+        {/* Header */}
         <header className="mb-10 text-center">
           <h2
             id="form-heading"
-            className="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
+            className="mb-4 text-3xl font-bold text-[#0A2540] sm:text-4xl lg:text-5xl"
           >
             Get Your{" "}
-            <span className="text-amazon">Free LEO Installation Quote</span>
+            <span className="bg-gradient-to-r from-[#0066FF] to-[#00D9FF] bg-clip-text text-transparent">
+              Free Quote
+            </span>
           </h2>
-          <p className="mx-auto max-w-lg text-lg text-gray-300">
-            Professional Amazon LEO satellite internet installation. Fill out
-            the form and we'll contact you within{" "}
-            <strong className="text-white">24 hours</strong> with your
-            personalized quote.
+          <p className="mx-auto max-w-lg text-lg text-gray-600">
+            Professional Amazon LEO satellite internet installation. We'll contact you within{" "}
+            <strong className="text-[#0A2540]">24 hours</strong> with your personalized quote.
           </p>
         </header>
 
-        {/*
-          TRUST SIGNALS - Above the form
-          Reduces friction by addressing common objections upfront
-        */}
-        <ul
-          className="mb-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm"
-          aria-label="Why request a quote"
-        >
-          <li className="flex items-center gap-2 text-gray-300">
-            <Shield className="h-5 w-5 text-green-400" aria-hidden="true" />
+        {/* Trust signals */}
+        <ul className="mb-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
+          <li className="flex items-center gap-2 text-gray-600">
+            <Shield className="h-5 w-5 text-green-500" aria-hidden="true" />
             <span>100% Free Quote</span>
           </li>
-          <li className="flex items-center gap-2 text-gray-300">
-            <BadgeCheck className="h-5 w-5 text-accent" aria-hidden="true" />
+          <li className="flex items-center gap-2 text-gray-600">
+            <BadgeCheck className="h-5 w-5 text-[#0066FF]" aria-hidden="true" />
             <span>No Obligation</span>
           </li>
-          <li className="flex items-center gap-2 text-gray-300">
-            <Clock className="h-5 w-5 text-amazon" aria-hidden="true" />
+          <li className="flex items-center gap-2 text-gray-600">
+            <Clock className="h-5 w-5 text-[#FF9900]" aria-hidden="true" />
             <span>Response in 24hrs</span>
           </li>
         </ul>
 
-        {/* Form card with glass morphism effect */}
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md sm:p-8">
-          {/* Success state - Fixed height to prevent CLS */}
+        {/* Form card */}
+        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-xl shadow-gray-200/50 sm:p-8">
+          {/* Success state */}
           {submitStatus === "success" && (
-            <output
-              className="flex min-h-[400px] flex-col items-center justify-center py-12 text-center"
-              aria-live="polite"
-            >
-              <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-green-500/20">
+            <output className="flex min-h-[400px] flex-col items-center justify-center py-12 text-center" aria-live="polite">
+              <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-green-50">
                 <CheckCircle2 className="h-10 w-10 text-green-500" />
               </div>
-              <h3 className="mb-2 text-2xl font-bold text-white">
-                Quote Request Submitted!
-              </h3>
-              <p className="text-gray-300">
-                Redirecting you to the confirmation page...
-              </p>
+              <h3 className="mb-2 text-2xl font-bold text-[#0A2540]">Quote Request Submitted!</h3>
+              <p className="text-gray-600">Redirecting you to the confirmation page...</p>
             </output>
           )}
 
           {/* Form */}
           {submitStatus !== "success" && (
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6"
-              noValidate
-              aria-describedby="form-description"
-            >
-              {/* Screen reader description */}
-              <p id="form-description" className="sr-only">
-                Request a free quote for Amazon LEO satellite internet
-                installation. All fields marked with asterisk are required.
-              </p>
-
-              {/* Error banner - Fixed min-height to prevent CLS */}
-              <div
-                className="min-h-[1px]"
-                role="alert"
-                aria-live="polite"
-              >
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+              {/* Error banner */}
+              <div className="min-h-[1px]" role="alert" aria-live="polite">
                 {submitStatus === "error" && (
-                  <div className="flex items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
-                    <AlertCircle
-                      className="h-5 w-5 flex-shrink-0 text-red-500"
-                      aria-hidden="true"
-                    />
-                    <p className="text-sm text-red-400">{errorMessage}</p>
+                  <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4">
+                    <AlertCircle className="h-5 w-5 flex-shrink-0 text-red-500" aria-hidden="true" />
+                    <p className="text-sm text-red-600">{errorMessage}</p>
                   </div>
                 )}
               </div>
 
-              {/*
-                NAME FIELD
-                - autocomplete="name" for better UX
-                - Large touch target (py-4 = 48px+ height)
-              */}
+              {/* Name */}
               <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-sm font-medium text-gray-300"
-                >
-                  Full Name <span className="text-amazon" aria-hidden="true">*</span>
-                  <span className="sr-only">(required)</span>
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
-                  <User
-                    className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-                    aria-hidden="true"
-                  />
+                  <User className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" aria-hidden="true" />
                   <input
                     {...register("name")}
                     type="text"
@@ -397,40 +209,21 @@ export default function LeadForm() {
                     autoComplete="name"
                     placeholder="John Smith"
                     onFocus={handleFirstInteraction}
-                    aria-required="true"
-                    aria-invalid={errors.name ? "true" : "false"}
-                    aria-describedby={errors.name ? "name-error" : undefined}
                     className={`${inputBaseStyles} ${errors.name ? inputErrorStyles : inputNormalStyles}`}
                   />
                 </div>
-                {/* Error message with fixed height container */}
                 <div className="mt-1 min-h-[20px]">
-                  {errors.name && (
-                    <p id="name-error" className="text-sm text-red-400" role="alert">
-                      {errors.name.message}
-                    </p>
-                  )}
+                  {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
                 </div>
               </div>
 
-              {/*
-                EMAIL FIELD
-                - type="email" for mobile keyboard
-                - autocomplete="email" for autofill
-              */}
+              {/* Email */}
               <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-gray-300"
-                >
-                  Email Address <span className="text-amazon" aria-hidden="true">*</span>
-                  <span className="sr-only">(required)</span>
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
+                  Email Address <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
-                  <Mail
-                    className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-                    aria-hidden="true"
-                  />
+                  <Mail className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" aria-hidden="true" />
                   <input
                     {...register("email")}
                     type="email"
@@ -438,39 +231,21 @@ export default function LeadForm() {
                     autoComplete="email"
                     placeholder="john@example.com"
                     onFocus={handleFirstInteraction}
-                    aria-required="true"
-                    aria-invalid={errors.email ? "true" : "false"}
-                    aria-describedby={errors.email ? "email-error" : undefined}
                     className={`${inputBaseStyles} ${errors.email ? inputErrorStyles : inputNormalStyles}`}
                   />
                 </div>
                 <div className="mt-1 min-h-[20px]">
-                  {errors.email && (
-                    <p id="email-error" className="text-sm text-red-400" role="alert">
-                      {errors.email.message}
-                    </p>
-                  )}
+                  {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
                 </div>
               </div>
 
-              {/*
-                PHONE FIELD
-                - type="tel" for phone keyboard on mobile
-                - autocomplete="tel" for autofill
-              */}
+              {/* Phone */}
               <div>
-                <label
-                  htmlFor="phone"
-                  className="mb-2 block text-sm font-medium text-gray-300"
-                >
-                  Phone Number <span className="text-amazon" aria-hidden="true">*</span>
-                  <span className="sr-only">(required)</span>
+                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-gray-700">
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
-                  <Phone
-                    className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-                    aria-hidden="true"
-                  />
+                  <Phone className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" aria-hidden="true" />
                   <input
                     {...register("phone")}
                     type="tel"
@@ -478,39 +253,21 @@ export default function LeadForm() {
                     autoComplete="tel"
                     placeholder="(555) 123-4567"
                     onFocus={handleFirstInteraction}
-                    aria-required="true"
-                    aria-invalid={errors.phone ? "true" : "false"}
-                    aria-describedby={errors.phone ? "phone-error" : undefined}
                     className={`${inputBaseStyles} ${errors.phone ? inputErrorStyles : inputNormalStyles}`}
                   />
                 </div>
                 <div className="mt-1 min-h-[20px]">
-                  {errors.phone && (
-                    <p id="phone-error" className="text-sm text-red-400" role="alert">
-                      {errors.phone.message}
-                    </p>
-                  )}
+                  {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
                 </div>
               </div>
 
-              {/*
-                ADDRESS FIELD
-                - Textarea for full address
-                - autocomplete="street-address" for autofill
-              */}
+              {/* Address */}
               <div>
-                <label
-                  htmlFor="address"
-                  className="mb-2 block text-sm font-medium text-gray-300"
-                >
-                  Installation Address <span className="text-amazon" aria-hidden="true">*</span>
-                  <span className="sr-only">(required)</span>
+                <label htmlFor="address" className="mb-2 block text-sm font-medium text-gray-700">
+                  Installation Address <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
-                  <MapPin
-                    className="absolute left-4 top-4 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
+                  <MapPin className="absolute left-4 top-4 h-5 w-5 text-gray-400" aria-hidden="true" />
                   <textarea
                     {...register("address")}
                     id="address"
@@ -518,44 +275,29 @@ export default function LeadForm() {
                     autoComplete="street-address"
                     placeholder="123 Main Street, City, State 12345"
                     onFocus={handleFirstInteraction}
-                    aria-required="true"
-                    aria-invalid={errors.address ? "true" : "false"}
-                    aria-describedby={errors.address ? "address-error" : "address-hint"}
                     className={`${inputBaseStyles} resize-none ${errors.address ? inputErrorStyles : inputNormalStyles}`}
                   />
                 </div>
-                <p id="address-hint" className="mt-1 text-xs text-gray-500">
-                  Enter the address where you want LEO satellite installed
-                </p>
+                <p className="mt-1 text-xs text-gray-500">Enter the address where you want LEO satellite installed</p>
                 <div className="min-h-[20px]">
-                  {errors.address && (
-                    <p id="address-error" className="text-sm text-red-400" role="alert">
-                      {errors.address.message}
-                    </p>
-                  )}
+                  {errors.address && <p className="text-sm text-red-500">{errors.address.message}</p>}
                 </div>
               </div>
 
-              {/*
-                PROPERTY TYPE FIELD
-                - Semantic fieldset/legend for radio group
-                - Large touch targets (p-4 = 48px+)
-                - Visual selection state
-              */}
+              {/* Property Type */}
               <fieldset>
-                <legend className="mb-3 block text-sm font-medium text-gray-300">
-                  Property Type <span className="text-amazon" aria-hidden="true">*</span>
-                  <span className="sr-only">(required)</span>
+                <legend className="mb-3 block text-sm font-medium text-gray-700">
+                  Property Type <span className="text-red-500">*</span>
                 </legend>
                 <div className="grid grid-cols-2 gap-4">
                   {propertyTypes.map((type) => (
                     <label
                       key={type}
-                      className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition-all duration-200 ${
+                      className={`flex cursor-pointer items-center gap-3 rounded-xl border-2 p-4 transition-all duration-200 ${
                         selectedPropertyType === type
-                          ? "border-accent bg-accent/10 ring-2 ring-accent/20"
-                          : "border-white/20 bg-white/5 hover:border-white/40"
-                      } ${errors.propertyType && !selectedPropertyType ? "border-red-500/50" : ""}`}
+                          ? "border-[#0066FF] bg-[#0066FF]/5 ring-2 ring-[#0066FF]/20"
+                          : "border-gray-200 bg-white hover:border-gray-300"
+                      } ${errors.propertyType && !selectedPropertyType ? "border-red-300" : ""}`}
                     >
                       <input
                         {...register("propertyType")}
@@ -563,29 +305,19 @@ export default function LeadForm() {
                         value={type}
                         onFocus={handleFirstInteraction}
                         className="sr-only"
-                        aria-describedby={
-                          errors.propertyType ? "propertyType-error" : undefined
-                        }
                       />
                       <div
                         className={`flex h-12 w-12 items-center justify-center rounded-lg transition-colors ${
                           selectedPropertyType === type
-                            ? "bg-accent/20 text-accent"
-                            : "bg-white/10 text-gray-400"
+                            ? "bg-[#0066FF]/10 text-[#0066FF]"
+                            : "bg-gray-100 text-gray-400"
                         }`}
-                        aria-hidden="true"
                       >
-                        {type === "residential" ? (
-                          <Home className="h-6 w-6" />
-                        ) : (
-                          <Building2 className="h-6 w-6" />
-                        )}
+                        {type === "residential" ? <Home className="h-6 w-6" /> : <Building2 className="h-6 w-6" />}
                       </div>
                       <span
                         className={`text-lg font-medium capitalize ${
-                          selectedPropertyType === type
-                            ? "text-white"
-                            : "text-gray-300"
+                          selectedPropertyType === type ? "text-[#0A2540]" : "text-gray-600"
                         }`}
                       >
                         {type}
@@ -594,89 +326,50 @@ export default function LeadForm() {
                   ))}
                 </div>
                 <div className="mt-1 min-h-[20px]">
-                  {errors.propertyType && (
-                    <p
-                      id="propertyType-error"
-                      className="text-sm text-red-400"
-                      role="alert"
-                    >
-                      {errors.propertyType.message}
-                    </p>
-                  )}
+                  {errors.propertyType && <p className="text-sm text-red-500">{errors.propertyType.message}</p>}
                 </div>
               </fieldset>
 
-              {/*
-                SUBMIT BUTTON
-                - Large touch target (py-4)
-                - Loading state with spinner
-                - Disabled state styling
-                - Descriptive text (not just "Submit")
-              */}
+              {/* Submit button */}
               <button
                 type="submit"
                 disabled={submitStatus === "loading"}
-                className="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-amazon to-orange-500 px-6 py-4 text-lg font-bold text-primary shadow-lg shadow-amazon/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-amazon/30 focus:outline-none focus:ring-2 focus:ring-amazon focus:ring-offset-2 focus:ring-offset-primary disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
-                aria-describedby="submit-description"
+                className="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#0066FF] px-6 py-4 text-lg font-bold text-white shadow-lg shadow-[#0066FF]/25 transition-all duration-300 hover:bg-[#0052CC] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {submitStatus === "loading" ? (
                   <>
-                    <Loader2
-                      className="h-5 w-5 animate-spin"
-                      aria-hidden="true"
-                    />
+                    <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
                     <span>Submitting Your Request...</span>
                   </>
                 ) : (
                   <>
-                    <Send
-                      className="h-5 w-5 transition-transform group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
-                    <span>Get My Free LEO Installation Quote</span>
+                    <Send className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    <span>Get My Free Quote</span>
                   </>
                 )}
               </button>
-              <p id="submit-description" className="sr-only">
-                Submit your information to receive a free, no-obligation quote
-                for Amazon LEO satellite internet installation.
-              </p>
 
-              {/*
-                PRIVACY REASSURANCE
-                - Addresses privacy concerns (reduces abandonment)
-                - Link to privacy policy for compliance
-              */}
-              <p className="text-center text-xs leading-relaxed text-gray-400">
-                🔒 Your information is secure. By submitting, you agree to be
-                contacted about Amazon LEO installation services.{" "}
-                <a
-                  href="/privacy"
-                  className="underline transition-colors hover:text-white"
-                >
-                  Privacy Policy
-                </a>
+              {/* Privacy */}
+              <p className="text-center text-xs leading-relaxed text-gray-500">
+                🔒 Your information is secure. By submitting, you agree to be contacted about Amazon LEO installation.{" "}
+                <a href="/privacy" className="underline hover:text-[#0066FF]">Privacy Policy</a>
               </p>
             </form>
           )}
         </div>
 
-        {/*
-          TRUST BADGES - Below form
-          Reinforces credibility after form completion
-        */}
-        {/* Trust badges below form */}
-        <footer className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-gray-400">
+        {/* Trust badges */}
+        <footer className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-green-400" aria-hidden="true" />
+            <CheckCircle2 className="h-5 w-5 text-green-500" aria-hidden="true" />
             <span>No obligation quote</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-accent" aria-hidden="true" />
+            <CheckCircle2 className="h-5 w-5 text-[#0066FF]" aria-hidden="true" />
             <span>Certified LEO installers</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-amazon" aria-hidden="true" />
+            <CheckCircle2 className="h-5 w-5 text-[#FF9900]" aria-hidden="true" />
             <span>Same-week installation</span>
           </div>
         </footer>
