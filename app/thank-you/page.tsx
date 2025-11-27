@@ -256,7 +256,7 @@ function ConversionTracking() {
 
 export default function ThankYouPage() {
   return (
-    <main className="relative min-h-screen bg-primary">
+    <main className="relative min-h-screen bg-white">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -270,8 +270,8 @@ export default function ThankYouPage() {
 
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-green-500/10 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-accent/10 blur-[100px]" />
+        <div className="absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-green-500/5 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-[#0066FF]/5 blur-[100px]" />
       </div>
 
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
@@ -285,27 +285,27 @@ export default function ThankYouPage() {
             <div className="mb-8 flex justify-center">
               <div className="relative">
                 <div className="absolute inset-0 animate-ping rounded-full bg-green-500/30" />
-                <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-green-500/20 ring-4 ring-green-500/30">
+                <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-green-100 ring-4 ring-green-200">
                   <CheckCircle2 className="h-12 w-12 text-green-500" aria-hidden="true" />
                 </div>
               </div>
             </div>
 
-            <h1 className="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h1 className="mb-4 text-3xl font-bold text-[#0A2540] sm:text-4xl lg:text-5xl">
               Thank You for Your Request!
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               Your LEO satellite installation quote request has been{" "}
-              <span className="font-semibold text-green-400">
+              <span className="font-semibold text-green-600">
                 successfully submitted
               </span>
               .
             </p>
 
             {/* Priority response badge */}
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-amazon/30 bg-amazon/10 px-5 py-2.5">
-              <Clock className="h-5 w-5 text-amazon" aria-hidden="true" />
-              <span className="font-semibold text-amazon">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#FF9900]/30 bg-[#FF9900]/10 px-5 py-2.5">
+              <Clock className="h-5 w-5 text-[#FF9900]" aria-hidden="true" />
+              <span className="font-semibold text-[#B45309]">
                 Priority Response: Within 2 Hours
               </span>
             </div>
@@ -316,12 +316,12 @@ export default function ThankYouPage() {
             Shows users exactly what to expect
           */}
           <section
-            className="mb-10 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+            className="mb-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm sm:p-8"
             aria-labelledby="next-steps-heading"
           >
             <h2
               id="next-steps-heading"
-              className="mb-6 text-center text-xl font-bold text-white"
+              className="mb-6 text-center text-xl font-bold text-[#0A2540]"
             >
               What Happens Next?
             </h2>
@@ -332,7 +332,7 @@ export default function ThankYouPage() {
                   {/* Timeline connector line */}
                   {index < timelineSteps.length - 1 && (
                     <div
-                      className="absolute left-5 top-12 h-[calc(100%-12px)] w-0.5 bg-gradient-to-b from-accent/50 to-white/10"
+                      className="absolute left-5 top-12 h-[calc(100%-12px)] w-0.5 bg-gradient-to-b from-[#0066FF]/50 to-gray-200"
                       aria-hidden="true"
                     />
                   )}
@@ -341,15 +341,15 @@ export default function ThankYouPage() {
                   <div
                     className={`relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${
                       step.status === "in-progress"
-                        ? "bg-green-500/20 ring-2 ring-green-500/50"
-                        : "bg-accent/20"
+                        ? "bg-green-100 ring-2 ring-green-300"
+                        : "bg-[#0066FF]/10"
                     }`}
                   >
                     <step.icon
                       className={`h-5 w-5 ${
                         step.status === "in-progress"
-                          ? "text-green-400"
-                          : "text-accent"
+                          ? "text-green-600"
+                          : "text-[#0066FF]"
                       }`}
                       aria-hidden="true"
                     />
@@ -358,17 +358,17 @@ export default function ThankYouPage() {
                   {/* Step content */}
                   <div className="flex-1 pb-8">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-semibold text-white">{step.title}</h3>
+                      <h3 className="font-semibold text-[#0A2540]">{step.title}</h3>
                       {step.status === "in-progress" && (
-                        <span className="rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-400">
+                        <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-600">
                           In Progress
                         </span>
                       )}
                     </div>
-                    <p className="mt-1 text-sm text-gray-400">
+                    <p className="mt-1 text-sm text-gray-600">
                       {step.description}
                     </p>
-                    <p className="mt-2 text-xs font-medium text-accent">
+                    <p className="mt-2 text-xs font-medium text-[#0066FF]">
                       ⏱ {step.time}
                     </p>
                   </div>
@@ -382,7 +382,7 @@ export default function ThankYouPage() {
             Reinforces confidence in their decision
           */}
           <section
-            className="mb-10 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+            className="mb-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-sm"
             aria-labelledby="trust-heading"
           >
             <h2 id="trust-heading" className="sr-only">
@@ -391,11 +391,11 @@ export default function ThankYouPage() {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {trustStats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
-                    <stat.icon className="h-5 w-5 text-accent" aria-hidden="true" />
+                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#0066FF]/10">
+                    <stat.icon className="h-5 w-5 text-[#0066FF]" aria-hidden="true" />
                   </div>
-                  <p className="text-xl font-bold text-white">{stat.value}</p>
-                  <p className="text-xs text-gray-400">{stat.label}</p>
+                  <p className="text-xl font-bold text-[#0A2540]">{stat.value}</p>
+                  <p className="text-xs text-gray-500">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -405,23 +405,23 @@ export default function ThankYouPage() {
             CONTACT INFORMATION
             For users who want to reach out directly
           */}
-          <section className="mb-10 rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm">
-            <p className="mb-4 text-sm text-gray-400">
+          <section className="mb-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center shadow-sm">
+            <p className="mb-4 text-sm text-gray-500">
               Have an urgent question? Reach out directly:
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
               <a
                 href={`mailto:${SITE_CONFIG.contact.email}`}
-                className="flex items-center gap-2 text-white transition-colors hover:text-accent"
+                className="flex items-center gap-2 text-[#0A2540] transition-colors hover:text-[#0066FF]"
               >
-                <Mail className="h-5 w-5 text-accent" aria-hidden="true" />
+                <Mail className="h-5 w-5 text-[#0066FF]" aria-hidden="true" />
                 <span>{SITE_CONFIG.contact.email}</span>
               </a>
               <a
                 href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="flex items-center gap-2 text-white transition-colors hover:text-accent"
+                className="flex items-center gap-2 text-[#0A2540] transition-colors hover:text-[#0066FF]"
               >
-                <Phone className="h-5 w-5 text-accent" aria-hidden="true" />
+                <Phone className="h-5 w-5 text-[#0066FF]" aria-hidden="true" />
                 <span>{SITE_CONFIG.contact.phoneDisplay}</span>
               </a>
             </div>
@@ -440,7 +440,7 @@ export default function ThankYouPage() {
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("I just requested a quote for Amazon LEO satellite internet installation! 🛰️ Finally getting fast internet in a rural area.")}&url=${encodeURIComponent(SITE_CONFIG.url)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-gray-400 transition-colors hover:border-accent hover:text-accent"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-400 transition-colors hover:border-[#0066FF] hover:text-[#0066FF]"
                 aria-label="Share on Twitter"
               >
                 <Share2 className="h-4 w-4" />
@@ -449,7 +449,7 @@ export default function ThankYouPage() {
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SITE_CONFIG.url)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-gray-400 transition-colors hover:border-accent hover:text-accent"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-400 transition-colors hover:border-[#0066FF] hover:text-[#0066FF]"
                 aria-label="Share on Facebook"
               >
                 <Share2 className="h-4 w-4" />
@@ -464,14 +464,14 @@ export default function ThankYouPage() {
           <footer className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amazon to-orange-500 px-6 py-3 font-semibold text-primary shadow-lg shadow-amazon/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-amazon/30"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0066FF] px-6 py-3 font-semibold text-white shadow-lg shadow-[#0066FF]/25 transition-all duration-300 hover:scale-105 hover:bg-[#0052CC]"
             >
               <Home className="h-5 w-5" aria-hidden="true" />
               Return to Homepage
             </Link>
             <Link
               href="/#benefits"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 font-medium text-[#0A2540] transition-all duration-300 hover:border-gray-400 hover:bg-gray-50"
             >
               <ArrowLeft className="h-5 w-5" aria-hidden="true" />
               Learn More About Us
