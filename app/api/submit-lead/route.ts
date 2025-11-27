@@ -51,9 +51,9 @@ function getResendClient(): Resend {
 }
 
 const NOTIFICATION_EMAIL =
-  process.env.NOTIFICATION_EMAIL || "leads@installleo.com";
+  process.env.NOTIFICATION_EMAIL || "installleos@gmail.com";
 const FROM_EMAIL =
-  process.env.FROM_EMAIL || "InstallLEO <noreply@installleo.com>";
+  process.env.FROM_EMAIL || "Acme <onboarding@resend.dev>";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://installleo.com";
 
 // Rate limiting configuration

@@ -47,7 +47,7 @@ export const SITE_CONFIG = {
   
   // Contact Information (update with real details)
   contact: {
-    email: "info@installleo.com",
+    email: "installleos@gmail.com",
     phone: "+1-800-555-1234",
     phoneDisplay: "(800) 555-1234",
   },
