@@ -222,6 +222,18 @@ function logConversion(
 // =============================================================================
 
 /**
+ * Sanitize a string to only contain valid tag characters (ASCII letters, numbers, underscores, dashes)
+ */
+function sanitizeTagValue(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]/g, "_") // Replace invalid chars with underscore
+    .replace(/_+/g, "_") // Collapse multiple underscores
+    .replace(/^_|_$/g, "") // Remove leading/trailing underscores
+    .substring(0, 50); // Limit length
+}
+
+/**
  * Extract lead metadata from request
  */
 function extractMetadata(request: NextRequest): LeadMetadata {
@@ -709,8 +721,8 @@ export async function POST(
         text: emailText,
         tags: [
           { name: "category", value: "lead" },
-          { name: "property_type", value: leadData.propertyType },
-          { name: "source", value: metadata.source },
+          { name: "property_type", value: sanitizeTagValue(leadData.propertyType) },
+          { name: "source", value: sanitizeTagValue(metadata.source) },
         ],
         headers: {
           "X-Lead-ID": metadata.leadId,
