@@ -116,12 +116,12 @@ export default function AboutPage() {
 				<div className="section-container relative z-10">
 					<div className="max-w-4xl mx-auto text-center">
 						<span className="badge badge-cyan mb-4">Our Story</span>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Building America's LEO
 							<br />
 							<span className="text-gradient">Installation Authority</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
 							From a single installer in Virginia to a nationwide network of certified
 							professionals. This is the InstallLEO story.
 						</p>
@@ -286,16 +286,16 @@ export default function AboutPage() {
 			</section>
 
 			{/* Mission Statement */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container">
 					<div className="max-w-3xl mx-auto text-center">
-						<h2 className="text-3xl sm:text-4xl font-bold mb-6">Our Mission</h2>
-						<blockquote className="text-xl sm:text-2xl text-slate-300 leading-relaxed mb-8">
+						<h2 className="text-3xl sm:text-4xl font-bold text-space-800 mb-6">Our Mission</h2>
+						<blockquote className="text-xl sm:text-2xl text-slate-600 leading-relaxed mb-8">
 							"To make satellite internet accessible to every American by providing
 							professional installation that guarantees optimal performance—turning the promise
 							of LEO satellite technology into reality for homes and businesses nationwide."
 						</blockquote>
-						<div className="text-cyan-400 font-semibold">— Eric Enk, Founder</div>
+						<div className="text-cyan-700 font-semibold">— Eric Enk, Founder</div>
 					</div>
 				</div>
 			</section>

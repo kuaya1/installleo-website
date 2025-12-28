@@ -15,7 +15,7 @@ export function PreLaunchCTA() {
 	};
 
 	return (
-		<section className="section-padding bg-gradient-to-br from-space-900 via-space-800 to-space-900 relative overflow-hidden">
+		<section className="section-padding bg-slate-50 relative overflow-hidden">
 			{/* Background decoration */}
 			<div className="absolute inset-0 overflow-hidden pointer-events-none">
 				<div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
@@ -28,15 +28,15 @@ export function PreLaunchCTA() {
 					<div className="text-center mb-10">
 						<div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-cyan-500/10 border border-cyan-500/30">
 							<span className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
-							<span className="text-sm text-cyan-400">Project Kuiper Launching 2025</span>
+							<span className="text-sm text-cyan-700">Project Kuiper Launching 2025</span>
 						</div>
 
-						<h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+						<h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-space-900 mb-4">
 							Be First in Line When
 							<br />
 							<span className="text-gradient">Kuiper Arrives in Your Area</span>
 						</h2>
-						<p className="text-lg text-slate-300 max-w-2xl mx-auto">
+						<p className="text-lg text-slate-600 max-w-2xl mx-auto">
 							Amazon's Project Kuiper is coming. Join 2,400+ early adopters who will be notified
 							the moment satellite internet becomes available at their address.
 						</p>
@@ -47,7 +47,7 @@ export function PreLaunchCTA() {
 						<form onSubmit={handleSubmit} className="lead-capture-card max-w-2xl mx-auto">
 							<div className="grid md:grid-cols-2 gap-4 mb-4">
 								<div>
-									<label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+									<label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
 										Email Address
 									</label>
 									<input
@@ -61,7 +61,7 @@ export function PreLaunchCTA() {
 									/>
 								</div>
 								<div>
-									<label htmlFor="zip" className="block text-sm font-medium text-slate-300 mb-2">
+									<label htmlFor="zip" className="block text-sm font-medium text-slate-700 mb-2">
 										ZIP Code
 									</label>
 									<input
@@ -78,7 +78,7 @@ export function PreLaunchCTA() {
 							</div>
 
 							<div className="mb-6">
-								<label htmlFor="interest" className="block text-sm font-medium text-slate-300 mb-2">
+								<label htmlFor="interest" className="block text-sm font-medium text-slate-700 mb-2">
 									I'm interested in...
 								</label>
 								<select
@@ -120,18 +120,18 @@ export function PreLaunchCTA() {
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
 								</svg>
 							</div>
-							<h3 className="text-xl font-semibold text-white mb-2">You're on the list!</h3>
-							<p className="text-slate-300 mb-4">
+							<h3 className="text-xl font-semibold text-space-800 mb-2">You're on the list!</h3>
+							<p className="text-slate-600 mb-4">
 								We'll notify you as soon as LEO satellite internet becomes available in your area.
 							</p>
-							<p className="text-sm text-slate-400">
+							<p className="text-sm text-slate-500">
 								Check your email for a confirmation and your personalized availability estimate.
 							</p>
 						</div>
 					)}
 
 					{/* Trust indicators */}
-					<div className="flex flex-wrap justify-center gap-6 mt-10 text-sm text-slate-400">
+					<div className="flex flex-wrap justify-center gap-6 mt-10 text-sm text-slate-600">
 						<div className="flex items-center gap-2">
 							<svg className="w-4 h-4 text-signal-green" fill="currentColor" viewBox="0 0 20 20">
 								<path

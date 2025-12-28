@@ -101,10 +101,10 @@ export default function LearnPage() {
 			<section className="hero-section pt-32 pb-16 lg:pt-40 lg:pb-20">
 				<div className="section-container relative z-10">
 					<div className="max-w-3xl mx-auto text-center">
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Learning <span className="text-gradient">Center</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
 							Your complete resource for understanding LEO satellite internet. From basics to
 							advanced optimization, we've got you covered.
 						</p>
@@ -181,10 +181,10 @@ export default function LearnPage() {
 			</section>
 
 			{/* Newsletter CTA */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container text-center">
-					<h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-					<p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+					<h2 className="text-3xl font-bold text-space-800 mb-4">Stay Updated</h2>
+					<p className="text-slate-600 mb-8 max-w-2xl mx-auto">
 						Get the latest news about Project Kuiper, Starlink updates, and satellite internet
 						tips delivered to your inbox.
 					</p>
@@ -192,7 +192,7 @@ export default function LearnPage() {
 						<input
 							type="email"
 							placeholder="Enter your email"
-							className="input bg-space-700 border-space-600 text-white placeholder:text-slate-400 flex-1"
+							className="input flex-1"
 						/>
 						<button type="submit" className="btn-primary whitespace-nowrap">
 							Subscribe

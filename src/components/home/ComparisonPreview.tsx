@@ -87,12 +87,12 @@ export function ComparisonPreview() {
 
 						<div className="relative bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
 							{/* Table header */}
-							<div className="grid grid-cols-3 bg-space-800 text-white">
+							<div className="grid grid-cols-3 bg-slate-50 text-slate-700 border-b border-slate-200">
 								<div className="px-4 py-3 text-sm font-medium">Feature</div>
-								<div className="px-4 py-3 text-sm font-medium text-center border-l border-space-700">
-									<span className="text-cyan-400">Project Kuiper</span>
+								<div className="px-4 py-3 text-sm font-medium text-center border-l border-slate-200">
+									<span className="text-cyan-700">Project Kuiper</span>
 								</div>
-								<div className="px-4 py-3 text-sm font-medium text-center border-l border-space-700">
+								<div className="px-4 py-3 text-sm font-medium text-center border-l border-slate-200">
 									Starlink
 								</div>
 							</div>

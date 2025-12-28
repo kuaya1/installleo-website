@@ -66,8 +66,8 @@ export function ComparisonTable({ category, features }: ComparisonTableProps) {
 
 	return (
 		<div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-			<div className="bg-space-800 px-6 py-4">
-				<h3 className="text-lg font-semibold text-white">{category}</h3>
+			<div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+				<h3 className="text-lg font-semibold text-space-800">{category}</h3>
 			</div>
 			<div className="overflow-x-auto">
 				<table className="w-full">

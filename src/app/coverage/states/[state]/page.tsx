@@ -108,7 +108,7 @@ export default async function StatePage({ params }: Props) {
 					<div className="max-w-4xl mx-auto text-center">
 						<Link
 							href="/coverage"
-							className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm mb-6"
+							className="inline-flex items-center gap-2 text-cyan-700 hover:text-cyan-600 text-sm mb-6"
 						>
 							<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -117,12 +117,12 @@ export default async function StatePage({ params }: Props) {
 						</Link>
 
 						<span className="badge badge-cyan mb-4">{data.name}</span>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							LEO Satellite Installation
 							<br />
 							<span className="text-gradient">in {data.name}</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
 							Professional Starlink installation available now, with Project Kuiper coming soon.
 							Expert installers serving all of {data.name}, specializing in {data.seoFocus}.
 						</p>
@@ -139,16 +139,16 @@ export default async function StatePage({ params }: Props) {
 						{/* State Stats */}
 						<div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
 							<div className="stat-card">
-								<div className="text-xl font-bold text-white">{data.population}</div>
-								<div className="text-xs text-slate-400">Population</div>
+								<div className="text-xl font-bold text-space-800">{data.population}</div>
+								<div className="text-xs text-slate-600">Population</div>
 							</div>
 							<div className="stat-card">
-								<div className="text-xl font-bold text-cyan-400">{data.ruralPercent}</div>
-								<div className="text-xs text-slate-400">Rural Areas</div>
+								<div className="text-xl font-bold text-cyan-600">{data.ruralPercent}</div>
+								<div className="text-xs text-slate-600">Rural Areas</div>
 							</div>
 							<div className="stat-card">
 								<div className="text-xl font-bold text-signal-green">100%</div>
-								<div className="text-xs text-slate-400">Coverage</div>
+								<div className="text-xs text-slate-600">Coverage</div>
 							</div>
 						</div>
 					</div>
@@ -314,10 +314,10 @@ export default async function StatePage({ params }: Props) {
 			</section>
 
 			{/* Testimonials */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl sm:text-4xl font-bold mb-4">
+						<h2 className="text-3xl sm:text-4xl font-bold text-space-800 mb-4">
 							What {data.name} Customers Say
 						</h2>
 					</div>
@@ -331,11 +331,11 @@ export default async function StatePage({ params }: Props) {
 									</svg>
 								))}
 							</div>
-							<p className="text-slate-300 italic mb-4">
+								<p className="text-slate-600 italic mb-4">
 								"Finally have reliable internet at my ranch. The InstallLEO team drove 2 hours to
 								reach us and did an amazing job. Worth every penny."
 							</p>
-							<div className="text-sm text-slate-400">— Rural {data.name} Customer</div>
+								<div className="text-sm text-slate-500">— Rural {data.name} Customer</div>
 						</div>
 						<div className="stat-card">
 							<div className="flex gap-1 mb-3">
@@ -345,11 +345,11 @@ export default async function StatePage({ params }: Props) {
 									</svg>
 								))}
 							</div>
-							<p className="text-slate-300 italic mb-4">
+								<p className="text-slate-600 italic mb-4">
 								"Professional, fast, and knowledgeable. They knew exactly how to position the dish
 								for our mountain property. Getting 180+ Mbps now!"
 							</p>
-							<div className="text-sm text-slate-400">— {data.majorCities[2]} Homeowner</div>
+								<div className="text-sm text-slate-500">— {data.majorCities[2]} Homeowner</div>
 						</div>
 					</div>
 				</div>

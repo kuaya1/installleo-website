@@ -66,7 +66,7 @@ export function Header() {
 							<div className="absolute inset-0 -m-1 rounded-full border border-cyan-500/30 animate-pulse-glow" />
 						</div>
 						<div className="flex flex-col">
-							<span className="text-xl font-bold text-white tracking-tight">
+							<span className="text-xl font-bold text-space-800 tracking-tight">
 								Install<span className="text-cyan-500">LEO</span>
 							</span>
 							<span className="text-[10px] text-slate-400 tracking-wider uppercase hidden sm:block">
@@ -108,13 +108,13 @@ export function Header() {
 								{/* Dropdown */}
 								{item.hasDropdown && activeDropdown === item.name && (
 									<div className="absolute top-full left-0 pt-2">
-										<div className="bg-space-800/95 backdrop-blur-lg border border-space-600 rounded-xl p-2 min-w-[220px] shadow-xl">
+										<div className="bg-white/95 backdrop-blur-lg border border-slate-200 rounded-xl p-2 min-w-[220px] shadow-xl">
 											{(item.name === "Learn" ? learnDropdown : servicesDropdown).map(
 												(subItem) => (
 													<Link
 														key={subItem.name}
 														href={subItem.href}
-														className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-space-700 rounded-lg transition-colors"
+														className="block px-4 py-2.5 text-sm text-slate-700 hover:text-space-800 hover:bg-slate-50 rounded-lg transition-colors"
 													>
 														{subItem.name}
 													</Link>
@@ -131,7 +131,7 @@ export function Header() {
 					<div className="hidden lg:flex items-center gap-4">
 						<Link
 							href="/coverage/check-availability"
-							className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+							className="text-sm font-medium text-cyan-700 hover:text-cyan-600 transition-colors"
 						>
 							Check Availability
 						</Link>
@@ -143,7 +143,7 @@ export function Header() {
 					{/* Mobile Menu Button */}
 					<button
 						type="button"
-						className="lg:hidden p-2 text-white"
+						className="lg:hidden p-2 text-space-800"
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
 						aria-label="Toggle menu"
 					>
@@ -171,13 +171,13 @@ export function Header() {
 
 				{/* Mobile Menu */}
 				{mobileMenuOpen && (
-					<div className="lg:hidden bg-space-800/98 backdrop-blur-lg border-t border-space-600 -mx-6 px-6 py-6">
+					<div className="lg:hidden bg-white/98 backdrop-blur-lg border-t border-slate-200 -mx-6 px-6 py-6">
 						<div className="flex flex-col gap-4">
 							{navigation.map((item) => (
 								<div key={item.name}>
 									<Link
 										href={item.href}
-										className="block text-lg font-medium text-white py-2"
+										className="block text-lg font-medium text-space-800 py-2"
 										onClick={() => setMobileMenuOpen(false)}
 									>
 										{item.name}
@@ -189,7 +189,7 @@ export function Header() {
 													<Link
 														key={subItem.name}
 														href={subItem.href}
-														className="text-slate-400 hover:text-white py-1"
+														className="text-slate-600 hover:text-space-800 py-1"
 														onClick={() => setMobileMenuOpen(false)}
 													>
 														{subItem.name}
@@ -200,7 +200,7 @@ export function Header() {
 									)}
 								</div>
 							))}
-							<div className="pt-4 border-t border-space-600 flex flex-col gap-3">
+							<div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
 								<Link
 									href="/coverage/check-availability"
 									className="btn-secondary w-full"

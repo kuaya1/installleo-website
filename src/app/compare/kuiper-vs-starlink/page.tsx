@@ -170,23 +170,23 @@ export default function KuiperVsStarlinkPage() {
 				<div className="section-container relative z-10">
 					<div className="max-w-4xl mx-auto text-center">
 						<span className="badge badge-amber mb-4">Comparison Guide</span>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Kuiper vs Starlink:
 							<br />
 							<span className="text-gradient">The Complete 2025 Guide</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
 							Amazon's Project Kuiper is entering the LEO satellite market. How does it compare to
 							SpaceX's Starlink? We break down everything you need to know to make the right
 							choice.
 						</p>
 
 						{/* Quick verdict */}
-						<div className="inline-flex items-center gap-4 px-6 py-4 bg-space-700/50 border border-space-500 rounded-xl backdrop-blur-sm">
+						<div className="inline-flex items-center gap-4 px-6 py-4 bg-white/70 border border-slate-200 rounded-xl backdrop-blur-sm">
 							<div className="text-left">
-								<div className="text-sm text-slate-400">Our Recommendation</div>
-								<div className="text-white font-semibold">
-									<span className="text-cyan-400">Starlink</span> if you need service now •{" "}
+								<div className="text-sm text-slate-500">Our Recommendation</div>
+								<div className="text-space-800 font-semibold">
+									<span className="text-cyan-700">Starlink</span> if you need service now •{" "}
 									<span className="text-signal-green">Wait for Kuiper</span> if you can wait for
 									potentially better pricing
 								</div>
@@ -352,15 +352,15 @@ export default function KuiperVsStarlinkPage() {
 			</section>
 
 			{/* InstallLEO Value Prop */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container">
 					<div className="max-w-4xl mx-auto text-center">
-						<h2 className="text-3xl sm:text-4xl font-bold mb-4">
+						<h2 className="text-3xl sm:text-4xl font-bold text-space-800 mb-4">
 							Whichever You Choose,
 							<br />
 							<span className="text-gradient">We Install It Right</span>
 						</h2>
-						<p className="text-lg text-slate-300 mb-8">
+						<p className="text-lg text-slate-600 mb-8">
 							InstallLEO is certified for both Starlink installation today and prepared for Project
 							Kuiper when it launches. We're technology-agnostic — our job is getting you the best
 							connectivity possible.
@@ -368,16 +368,16 @@ export default function KuiperVsStarlinkPage() {
 
 						<div className="grid sm:grid-cols-3 gap-6 mb-10">
 							<div className="stat-card">
-								<div className="text-2xl font-bold text-cyan-400 mb-1">500+</div>
-								<div className="text-sm text-slate-400">Installations Completed</div>
+								<div className="text-2xl font-bold text-cyan-600 mb-1">500+</div>
+								<div className="text-sm text-slate-600">Installations Completed</div>
 							</div>
 							<div className="stat-card">
 								<div className="text-2xl font-bold text-signal-green mb-1">Both</div>
-								<div className="text-sm text-slate-400">Systems Supported</div>
+								<div className="text-sm text-slate-600">Systems Supported</div>
 							</div>
 							<div className="stat-card">
-								<div className="text-2xl font-bold text-white mb-1">50</div>
-								<div className="text-sm text-slate-400">States Covered</div>
+								<div className="text-2xl font-bold text-space-800 mb-1">50</div>
+								<div className="text-sm text-slate-600">States Covered</div>
 							</div>
 						</div>
 

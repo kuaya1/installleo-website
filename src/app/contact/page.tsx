@@ -50,10 +50,10 @@ export default function ContactPage() {
 			<section className="hero-section pt-32 pb-16 lg:pt-40 lg:pb-20">
 				<div className="section-container relative z-10">
 					<div className="max-w-3xl mx-auto text-center">
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Get in <span className="text-gradient">Touch</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
 							Questions about installation, pricing, or coverage? Our team is here to help you
 							get connected.
 						</p>
@@ -177,10 +177,10 @@ export default function ContactPage() {
 			</section>
 
 			{/* Business Inquiries */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container text-center">
-					<h2 className="text-3xl font-bold mb-4">Business & Partnership Inquiries</h2>
-					<p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+					<h2 className="text-3xl font-bold text-space-800 mb-4">Business & Partnership Inquiries</h2>
+					<p className="text-slate-600 mb-8 max-w-2xl mx-auto">
 						Interested in partnering with InstallLEO? We work with internet service providers,
 						property developers, and equipment manufacturers. Let's talk.
 					</p>

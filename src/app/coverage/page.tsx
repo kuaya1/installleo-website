@@ -40,10 +40,10 @@ export default function CoveragePage() {
 				<div className="section-container relative z-10">
 					<div className="max-w-3xl mx-auto text-center">
 						<span className="badge badge-signal-green mb-4">All 50 States</span>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Coverage <span className="text-gradient">Map</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+						<p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-8">
 							InstallLEO has certified installers across all 50 states. Check availability in your
 							area and schedule your professional installation.
 						</p>
@@ -127,11 +127,11 @@ export default function CoveragePage() {
 			</section>
 
 			{/* Service Types */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl font-bold mb-4">Services Available Nationwide</h2>
-						<p className="text-slate-300 max-w-2xl mx-auto">
+						<h2 className="text-3xl font-bold text-space-800 mb-4">Services Available Nationwide</h2>
+						<p className="text-slate-600 max-w-2xl mx-auto">
 							No matter where you are, our certified installers can help.
 						</p>
 					</div>
@@ -139,22 +139,22 @@ export default function CoveragePage() {
 					<div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
 						<div className="stat-card text-center">
 							<div className="text-3xl mb-3">🏠</div>
-							<h3 className="font-semibold text-white mb-2">Residential</h3>
-							<p className="text-sm text-slate-400">
+							<h3 className="font-semibold text-space-800 mb-2">Residential</h3>
+							<p className="text-sm text-slate-600">
 								Home installations starting at $299
 							</p>
 						</div>
 						<div className="stat-card text-center">
 							<div className="text-3xl mb-3">🏢</div>
-							<h3 className="font-semibold text-white mb-2">Commercial</h3>
-							<p className="text-sm text-slate-400">
+							<h3 className="font-semibold text-space-800 mb-2">Commercial</h3>
+							<p className="text-sm text-slate-600">
 								Business-grade installations
 							</p>
 						</div>
 						<div className="stat-card text-center">
 							<div className="text-3xl mb-3">🚐</div>
-							<h3 className="font-semibold text-white mb-2">RV & Mobile</h3>
-							<p className="text-sm text-slate-400">
+							<h3 className="font-semibold text-space-800 mb-2">RV & Mobile</h3>
+							<p className="text-sm text-slate-600">
 								Portable setups for travelers
 							</p>
 						</div>

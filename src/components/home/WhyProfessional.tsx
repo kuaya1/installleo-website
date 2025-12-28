@@ -96,7 +96,7 @@ export function WhyProfessional() {
 						<div key={reason.title} className="card-elevated group">
 							<div className="flex items-start gap-4">
 								{/* Icon */}
-								<div className="w-14 h-14 rounded-xl bg-space-800 text-cyan-400 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+								<div className="w-14 h-14 rounded-xl bg-cyan-500/10 text-cyan-600 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
 									{reason.icon}
 								</div>
 

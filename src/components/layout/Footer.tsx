@@ -52,7 +52,7 @@ const popularStates = [
 
 export function Footer() {
 	return (
-		<footer className="bg-space-900 text-white">
+		<footer className="bg-slate-50 text-space-800 border-t border-slate-200">
 			{/* Main Footer */}
 			<div className="section-container section-padding">
 				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
@@ -77,7 +77,7 @@ export function Footer() {
 								</span>
 							</div>
 						</Link>
-						<p className="text-slate-400 mb-6 max-w-sm">
+						<p className="text-slate-600 mb-6 max-w-sm">
 							America's LEO Satellite Installation Authority. Professional installation services
 							for Project Kuiper, Starlink, and next-generation satellite internet nationwide.
 						</p>
@@ -101,7 +101,7 @@ export function Footer() {
 						<div className="flex gap-4">
 							<a
 								href="https://twitter.com/installleo"
-								className="text-slate-400 hover:text-cyan-500 transition-colors"
+								className="text-slate-600 hover:text-cyan-600 transition-colors"
 								aria-label="Twitter"
 							>
 								<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -110,7 +110,7 @@ export function Footer() {
 							</a>
 							<a
 								href="https://linkedin.com/company/installleo"
-								className="text-slate-400 hover:text-cyan-500 transition-colors"
+								className="text-slate-600 hover:text-cyan-600 transition-colors"
 								aria-label="LinkedIn"
 							>
 								<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -119,7 +119,7 @@ export function Footer() {
 							</a>
 							<a
 								href="https://youtube.com/@installleo"
-								className="text-slate-400 hover:text-cyan-500 transition-colors"
+								className="text-slate-600 hover:text-cyan-600 transition-colors"
 								aria-label="YouTube"
 							>
 								<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -132,13 +132,13 @@ export function Footer() {
 					{/* Link Columns */}
 					{Object.values(footerLinks).map((section) => (
 						<div key={section.title}>
-							<h3 className="font-semibold text-white mb-4">{section.title}</h3>
+							<h3 className="font-semibold text-space-800 mb-4">{section.title}</h3>
 							<ul className="space-y-3">
 								{section.links.map((link) => (
 									<li key={link.name}>
 										<Link
 											href={link.href}
-											className="text-slate-400 hover:text-cyan-400 transition-colors text-sm"
+											className="text-slate-600 hover:text-cyan-600 transition-colors text-sm"
 										>
 											{link.name}
 										</Link>
@@ -150,21 +150,21 @@ export function Footer() {
 				</div>
 
 				{/* Popular States */}
-				<div className="mt-12 pt-8 border-t border-space-700">
-					<h3 className="font-semibold text-white mb-4">Service Areas</h3>
+				<div className="mt-12 pt-8 border-t border-slate-200">
+					<h3 className="font-semibold text-space-800 mb-4">Service Areas</h3>
 					<div className="flex flex-wrap gap-3">
 						{popularStates.map((state) => (
 							<Link
 								key={state.name}
 								href={state.href}
-								className="text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+								className="text-sm text-slate-600 hover:text-cyan-600 transition-colors"
 							>
 								{state.name}
 							</Link>
 						))}
 						<Link
 							href="/coverage/availability-map"
-							className="text-sm text-cyan-500 hover:text-cyan-400 transition-colors font-medium"
+							className="text-sm text-cyan-600 hover:text-cyan-700 transition-colors font-medium"
 						>
 							View All States →
 						</Link>
@@ -173,7 +173,7 @@ export function Footer() {
 			</div>
 
 			{/* Bottom Bar */}
-			<div className="border-t border-space-700">
+			<div className="border-t border-slate-200">
 				<div className="section-container py-6">
 					<div className="flex flex-col md:flex-row justify-between items-center gap-4">
 						<div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
@@ -182,13 +182,13 @@ export function Footer() {
 							<span>A division of professional satellite installation services.</span>
 						</div>
 						<div className="flex gap-6 text-sm">
-							<Link href="/privacy" className="text-slate-500 hover:text-white transition-colors">
+							<Link href="/privacy" className="text-slate-500 hover:text-space-800 transition-colors">
 								Privacy Policy
 							</Link>
-							<Link href="/terms" className="text-slate-500 hover:text-white transition-colors">
+							<Link href="/terms" className="text-slate-500 hover:text-space-800 transition-colors">
 								Terms of Service
 							</Link>
-							<Link href="/sitemap.xml" className="text-slate-500 hover:text-white transition-colors">
+							<Link href="/sitemap.xml" className="text-slate-500 hover:text-space-800 transition-colors">
 								Sitemap
 							</Link>
 						</div>

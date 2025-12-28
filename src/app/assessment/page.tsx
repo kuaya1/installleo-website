@@ -20,12 +20,12 @@ export default function AssessmentPage() {
 				<div className="section-container relative z-10">
 					<div className="max-w-3xl mx-auto text-center">
 						<span className="badge badge-cyan mb-4">No Obligation</span>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Free Site
 							<br />
 							<span className="text-gradient">Assessment</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
 							Tell us about your property and we'll provide a personalized installation
 							recommendation — completely free.
 						</p>

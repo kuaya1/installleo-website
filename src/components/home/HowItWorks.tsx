@@ -68,7 +68,7 @@ const steps = [
 
 export function HowItWorks() {
 	return (
-		<section className="section-padding bg-space-800 text-white relative overflow-hidden">
+		<section className="section-padding bg-slate-50 relative overflow-hidden">
 			{/* Background pattern */}
 			<div className="absolute inset-0 opacity-5">
 				<svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -90,7 +90,7 @@ export function HowItWorks() {
 						<br />
 						<span className="text-gradient">Installation Works</span>
 					</h2>
-					<p className="text-lg text-slate-300 max-w-2xl mx-auto">
+					<p className="text-lg text-slate-600 max-w-2xl mx-auto">
 						From initial assessment to final configuration, we handle every detail of your satellite
 						internet installation.
 					</p>
@@ -109,14 +109,14 @@ export function HowItWorks() {
 								{/* Step number */}
 								<div className="flex items-center justify-between mb-4">
 									<span className="text-4xl font-bold text-cyan-500/30">{step.number}</span>
-									<div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+									<div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 flex items-center justify-center">
 										{step.icon}
 									</div>
 								</div>
 
 								{/* Content */}
-								<h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
-								<p className="text-sm text-slate-400">{step.description}</p>
+								<h3 className="text-lg font-semibold text-space-800 mb-2">{step.title}</h3>
+								<p className="text-sm text-slate-600">{step.description}</p>
 							</div>
 						</div>
 					))}

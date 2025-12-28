@@ -53,23 +53,23 @@ export function HeroSection() {
 					{/* Authority badge */}
 					<div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-space-700/50 border border-space-500 backdrop-blur-sm animate-fade-in-up">
 						<span className="w-2 h-2 bg-signal-green rounded-full animate-pulse" />
-						<span className="text-sm text-slate-300">
-							<span className="text-white font-medium">America's LEO Satellite Installation Authority</span>{" "}
+						<span className="text-sm text-slate-600">
+							<span className="text-space-800 font-medium">America's LEO Satellite Installation Authority</span>{" "}
 							— Project Kuiper launching 2025
 						</span>
 					</div>
 
 					{/* Main headline - Decision Enabler positioning */}
-					<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 animate-fade-in-up stagger-1">
+					<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-space-900 mb-6 animate-fade-in-up stagger-1">
 						From Confusion
 						<br />
 						<span className="text-gradient">to Connection</span>
 					</h1>
 
 					{/* Subheadline - Value proposition */}
-					<p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto animate-fade-in-up stagger-2">
+					<p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto animate-fade-in-up stagger-2">
 						Your trusted guide to satellite internet decisions.{" "}
-						<span className="text-white font-semibold">Compare Kuiper vs Starlink</span>, understand your options, and get professional installation from the experts behind{" "}
+						<span className="text-space-800 font-semibold">Compare Kuiper vs Starlink</span>, understand your options, and get professional installation from the experts behind{" "}
 						<span className="text-cyan-400 font-semibold">500+ successful installations</span>.
 					</p>
 
@@ -83,7 +83,7 @@ export function HeroSection() {
 										placeholder="Enter your email for availability alerts"
 										value={email}
 										onChange={(e) => setEmail(e.target.value)}
-										className="w-full px-5 py-4 pr-36 rounded-xl bg-space-700/50 border border-space-500 text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+										className="w-full px-5 py-4 pr-36 rounded-xl bg-white/80 border border-slate-300 text-space-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
 										required
 									/>
 									<button
@@ -123,7 +123,7 @@ export function HeroSection() {
 							</svg>
 							Compare Kuiper vs Starlink
 						</Link>
-						<Link href="/assessment" className="btn-ghost">
+						<Link href="/assessment" className="btn-secondary">
 							<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path
 									strokeLinecap="round"
@@ -134,7 +134,7 @@ export function HeroSection() {
 							</svg>
 							Free Site Assessment
 						</Link>
-						<Link href="/services/residential-installation" className="btn-ghost">
+						<Link href="/services/residential-installation" className="btn-secondary">
 							<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path
 									strokeLinecap="round"
@@ -157,8 +157,8 @@ export function HeroSection() {
 						{ value: "24hr", label: "Average Response Time" },
 					].map((stat, index) => (
 						<div key={stat.label} className={`stat-card text-center animate-fade-in-up stagger-${index + 1}`}>
-							<div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1">{stat.value}</div>
-							<div className="text-xs sm:text-sm text-slate-400">{stat.label}</div>
+							<div className="text-2xl sm:text-3xl font-bold text-cyan-600 mb-1">{stat.value}</div>
+							<div className="text-xs sm:text-sm text-slate-600">{stat.label}</div>
 						</div>
 					))}
 				</div>

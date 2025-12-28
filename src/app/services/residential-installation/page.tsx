@@ -166,12 +166,12 @@ export default function ResidentialInstallationPage() {
 				<div className="section-container relative z-10">
 					<div className="max-w-4xl mx-auto text-center">
 						<span className="badge badge-cyan mb-4">Residential Installation</span>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							Professional Satellite
 							<br />
 							<span className="text-gradient">Installation for Your Home</span>
 						</h1>
-						<p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+						<p className="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
 							Expert Starlink installation today, ready for Project Kuiper tomorrow. We handle
 							everything from mounting to activation so you can enjoy fast, reliable internet.
 						</p>
@@ -186,7 +186,7 @@ export default function ResidentialInstallationPage() {
 						</div>
 
 						{/* Trust indicators */}
-						<div className="flex flex-wrap justify-center gap-8 text-sm text-slate-400">
+						<div className="flex flex-wrap justify-center gap-8 text-sm text-slate-600">
 							<div className="flex items-center gap-2">
 								<svg className="w-5 h-5 text-signal-green" fill="currentColor" viewBox="0 0 20 20">
 									<path
@@ -339,13 +339,13 @@ export default function ResidentialInstallationPage() {
 			</section>
 
 			{/* Guarantees */}
-			<section className="section-padding bg-space-800 text-white">
+			<section className="section-padding bg-slate-50">
 				<div className="section-container">
 					<div className="text-center mb-12">
-						<h2 className="text-3xl sm:text-4xl font-bold mb-4">
+						<h2 className="text-3xl sm:text-4xl font-bold text-space-800 mb-4">
 							Our <span className="text-gradient">Guarantees</span>
 						</h2>
-						<p className="text-lg text-slate-300 max-w-2xl mx-auto">
+						<p className="text-lg text-slate-600 max-w-2xl mx-auto">
 							We stand behind our work with industry-leading guarantees and support.
 						</p>
 					</div>
@@ -354,8 +354,8 @@ export default function ResidentialInstallationPage() {
 						{guarantees.map((g) => (
 							<div key={g.title} className="stat-card text-center">
 								<div className="text-3xl mb-3">{g.icon}</div>
-								<h3 className="font-semibold text-white mb-2">{g.title}</h3>
-								<p className="text-sm text-slate-400">{g.description}</p>
+								<h3 className="font-semibold text-space-800 mb-2">{g.title}</h3>
+								<p className="text-sm text-slate-600">{g.description}</p>
 							</div>
 						))}
 					</div>

@@ -90,7 +90,7 @@ export default function WhatIsLEOPage() {
 					<div className="max-w-4xl mx-auto">
 						<Link
 							href="/learn"
-							className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 text-sm mb-6"
+							className="inline-flex items-center gap-2 text-cyan-700 hover:text-cyan-600 text-sm mb-6"
 						>
 							<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -103,13 +103,13 @@ export default function WhatIsLEOPage() {
 							<span className="text-slate-400 text-sm">10 min read</span>
 						</div>
 
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-space-900 mb-6">
 							What is LEO
 							<br />
 							<span className="text-gradient">Satellite Internet?</span>
 						</h1>
 
-						<p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl">
+						<p className="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl">
 							Low Earth Orbit satellite internet is revolutionizing connectivity for millions in
 							rural and underserved areas. Here's everything you need to know.
 						</p>
@@ -119,8 +119,8 @@ export default function WhatIsLEOPage() {
 							{keyFacts.map((fact) => (
 								<div key={fact.label} className="stat-card text-center">
 									<span className="text-2xl mb-2">{fact.icon}</span>
-									<div className="text-xl font-bold text-white">{fact.value}</div>
-									<div className="text-xs text-slate-400">{fact.label}</div>
+									<div className="text-xl font-bold text-space-800">{fact.value}</div>
+									<div className="text-xs text-slate-600">{fact.label}</div>
 								</div>
 							))}
 						</div>
@@ -266,7 +266,7 @@ export default function WhatIsLEOPage() {
 								<div className="overflow-x-auto -mx-4 px-4">
 									<table className="w-full border-collapse">
 										<thead>
-											<tr className="bg-space-800 text-white">
+											<tr className="bg-slate-50 text-slate-700 border-b border-slate-200">
 												<th className="py-3 px-4 text-left font-medium rounded-tl-lg">Feature</th>
 												<th className="py-3 px-4 text-left font-medium">LEO Satellite</th>
 												<th className="py-3 px-4 text-left font-medium rounded-tr-lg">
@@ -347,7 +347,7 @@ export default function WhatIsLEOPage() {
 								<div className="space-y-4">
 									<div className="card border border-slate-200">
 										<div className="flex items-start gap-4">
-											<div className="w-12 h-12 rounded-xl bg-space-800 flex items-center justify-center text-white font-bold">
+											<div className="w-12 h-12 rounded-xl bg-slate-200 flex items-center justify-center text-space-800 font-bold">
 												S
 											</div>
 											<div className="flex-1">
@@ -487,9 +487,9 @@ export default function WhatIsLEOPage() {
 									</li>
 								</ul>
 
-								<div className="bg-space-800 text-white rounded-xl p-6">
-									<h4 className="font-semibold mb-2">Ready to Install?</h4>
-									<p className="text-slate-300 text-sm mb-4">
+											<div className="bg-slate-50 border border-slate-200 rounded-xl p-6">
+												<h4 className="font-semibold text-space-800 mb-2">Ready to Install?</h4>
+												<p className="text-slate-600 text-sm mb-4">
 										InstallLEO provides professional installation for both Starlink (available now)
 										and Project Kuiper (when available). We handle site assessment, optimal
 										positioning, mounting, and setup.
