@@ -74,6 +74,49 @@ export const metadata: Metadata = {
 	verification: {
 		google: "your-google-verification-code",
 	},
+	alternates: {
+		canonical: "https://installleo.com",
+	},
+};
+
+// Organization structured data for SEO
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "InstallLEO",
+	alternateName: "LEO Installation Network",
+	url: "https://installleo.com",
+	logo: "https://installleo.com/logo.png",
+	description:
+		"America's LEO Satellite Installation Authority. Professional Project Kuiper and Starlink installation services nationwide.",
+	foundingDate: "2024",
+	contactPoint: {
+		"@type": "ContactPoint",
+		telephone: "+1-888-536-4678",
+		contactType: "customer service",
+		availableLanguage: "English",
+	},
+	sameAs: [
+		"https://twitter.com/installleo",
+		"https://linkedin.com/company/installleo",
+		"https://youtube.com/@installleo",
+	],
+	areaServed: {
+		"@type": "Country",
+		name: "United States",
+	},
+};
+
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "InstallLEO",
+	url: "https://installleo.com",
+	description: "America's LEO Satellite Installation Authority",
+	potentialAction: {
+		"@type": "SearchAction",
+		target: "https://installleo.com/search?q={search_term_string}",
+	},
 };
 
 export default function RootLayout({
@@ -87,6 +130,14 @@ export default function RootLayout({
 				<link rel="icon" href="/favicon.ico" sizes="any" />
 				<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 				<link rel="manifest" href="/site.webmanifest" />
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+				/>
 			</head>
 			<body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
 				<Header />
